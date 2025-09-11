@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nexo Custom - Call Center y Servicios Empresariales</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom scrollbar */
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    
+    /* Hero background with overlay - NUEVO DISEÑO VIOLETA */
+    .hero-bg {
+      background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 25%, #c084fc 50%, #d946ef 75%, #e879f9 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      z-index: 1;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Professional card shadows - NUEVO ESTILO VIOLETA */
+    .professional-card {
+      background: linear-gradient(145deg, #1e1b4b, #312e81);
+      border: 2px solid #8b5cf6;
+      box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3), 0 0 20px rgba(168, 85, 247, 0.2);
+      transition: all 0.5s ease;
+    }
+    
+    .professional-card:hover {
+      transform: translateY(-12px) rotateX(5deg);
+      box-shadow: 0 30px 60px rgba(139, 92, 246, 0.5), 0 0 30px rgba(168, 85, 247, 0.4);
+      border-color: #d946ef;
+    }
+
+    /* Gradient text effect - NUEVO VIOLETA */
+    .gradient-text {
+      background: linear-gradient(135deg, #c084fc, #e879f9, #fbbf24);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* WhatsApp button animation - NUEVO DISEÑO */
+    .whatsapp-btn {
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      animation: bounce 3s infinite;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      40% {
+        transform: translateY(-10px) scale(1.05);
+      }
+      60% {
+        transform: translateY(-5px) scale(1.02);
+      }
+    }
+
+    /* Animated border - NUEVO VIOLETA */
+    .animated-border {
+      position: relative;
+      background: linear-gradient(145deg, #1e1b4b, #312e81);
+    }
+    
+    .animated-border::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border-radius: inherit;
+      background: linear-gradient(45deg, #8b5cf6, #d946ef, #f59e0b, #8b5cf6);
+      background-size: 400% 400%;
+      animation: gradientShift 4s ease infinite;
+      z-index: -1;
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Hexagon shapes */
+    .hexagon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #8b5cf6, #d946ef);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Diagonal sections */
+    .diagonal-section {
+      transform: skewY(-3deg);
+    }
+    
+    .diagonal-content {
+      transform: skewY(3deg);
+    }
+
+    /* Floating elements */
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-sans leading-relaxed overflow-x-hidden">
+
+  <!-- HEADER WITH HERO BACKGROUND - COMPLETAMENTE NUEVO DISEÑO -->
+  <header class="hero-bg min-h-screen flex items-center relative">
+    <div class="hero-content w-full">
+      <!-- Navigation flotante en la parte superior -->
+      <nav class="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-lg border-b border-purple-500/30">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+          <ul class="flex justify-center space-x-8 text-purple-200 text-lg font-bold">
+            <li><a href="#inicio" class="hover:text-yellow-400 transition duration-300 relative group">
+              <span>🏠</span> Inicio
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
+            </a></li>
+            <li><a href="#nosotros" class="hover:text-yellow-400 transition duration-300 relative group">
+              <span>👥</span> Nosotros
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
+            </a></li>
+            <li><a href="#soluciones" class="hover:text-yellow-400 transition duration-300 relative group">
+              <span>⚡</span> Soluciones
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
+            </a></li>
+            <li><a href="#equipo" class="hover:text-yellow-400 transition duration-300 relative group">
+              <span>🎯</span> Equipo
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
+            </a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Hero Content - DISEÑO HEXAGONAL -->
+      <div class="max-w-7xl mx-auto px-6 py-20 mt-16">
+        <div class="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
+          <!-- Lado izquierdo con hexágonos flotantes -->
+          <div class="relative">
+            <div class="text-center lg:text-left">
+              <div class="flex items-center justify-center lg:justify-start mb-8">
+                <div class="hexagon mr-6 floating">
+                  <span class="text-2xl">📞</span>
+                </div>
+                <h1 class="text-6xl md:text-7xl font-black tracking-tight">
+                  <span class="gradient-text">Nexo Custom</span>
+          </h1>
+              </div>
+              
+              <p class="text-purple-200 text-2xl md:text-3xl mb-8 font-bold">
+                🌟 Revolucionamos la Comunicación Empresarial 🌟
+              </p>
+              
+              <!-- Cards flotantes con información -->
+              <div class="grid grid-cols-2 gap-4 mb-8">
+                <div class="bg-purple-800/50 p-4 rounded-xl border border-purple-400 floating" style="animation-delay: 0.5s;">
+                  <div class="text-yellow-400 text-xl mb-2">🚀</div>
+                  <p class="text-sm font-bold">Innovación</p>
+                </div>
+                <div class="bg-purple-800/50 p-4 rounded-xl border border-purple-400 floating" style="animation-delay: 1s;">
+                  <div class="text-yellow-400 text-xl mb-2">⭐</div>
+                  <p class="text-sm font-bold">Excelencia</p>
+                </div>
+                <div class="bg-purple-800/50 p-4 rounded-xl border border-purple-400 floating" style="animation-delay: 1.5s;">
+                  <div class="text-yellow-400 text-xl mb-2">🎯</div>
+                  <p class="text-sm font-bold">Precisión</p>
+                </div>
+                <div class="bg-purple-800/50 p-4 rounded-xl border border-purple-400 floating" style="animation-delay: 2s;">
+                  <div class="text-yellow-400 text-xl mb-2">💼</div>
+                  <p class="text-sm font-bold">Profesional</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lado derecho con imagen principal -->
+          <div class="relative lg:order-first">
+            <div class="relative">
+              <img 
+                src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=2126&q=80" 
+                alt="Equipo de call center moderno trabajando" 
+                class="rounded-3xl shadow-2xl professional-card floating"
+              />
+              <!-- Elementos decorativos flotantes -->
+              <div class="absolute -top-10 -right-10 hexagon floating" style="animation-delay: 1s;">
+                <span class="text-xl">📈</span>
+              </div>
+              <div class="absolute -bottom-10 -left-10 hexagon floating" style="animation-delay: 2s;">
+                <span class="text-xl">💎</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECCIÓN NOSOTROS - DISEÑO DIAGONAL -->
+  <section id="nosotros" class="diagonal-section bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 py-32">
+    <div class="diagonal-content">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-20">
+          <div class="flex justify-center items-center mb-8">
+            <div class="hexagon mr-4">
+              <span class="text-2xl">🏢</span>
+            </div>
+            <h2 class="text-6xl font-black gradient-text">¿Quiénes Somos?</h2>
+          </div>
+          <div class="w-40 h-1 bg-gradient-to-r from-yellow-400 to-pink-500 mx-auto rounded-full"></div>
+        </div>
+        
+        <!-- Grid con diseño alternado -->
+        <div class="grid lg:grid-cols-3 gap-12 items-center">
+          <!-- Columna 1 -->
+          <div class="space-y-8">
+            <div class="professional-card p-8 rounded-2xl animated-border">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-4">
+                  <span class="text-xl">🎨</span>
+                </div>
+                <h3 class="text-2xl font-bold text-purple-300">Creatividad</h3>
+              </div>
+              <p class="text-gray-300">Diseñamos soluciones únicas y personalizadas para cada cliente.</p>
+      </div>
+      
+            <div class="professional-card p-8 rounded-2xl animated-border">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-4">
+                  <span class="text-xl">⚡</span>
+                </div>
+                <h3 class="text-2xl font-bold text-purple-300">Velocidad</h3>
+              </div>
+              <p class="text-gray-300">Respuestas rápidas y eficientes en cada interacción.</p>
+            </div>
+        </div>
+
+          <!-- Columna 2 - Imagen central -->
+          <div class="flex justify-center">
+        <div class="relative">
+          <img 
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2084&q=80" 
+                alt="Equipo colaborativo en oficina moderna" 
+                class="rounded-full w-80 h-80 object-cover professional-card floating border-8 border-purple-400"
+              />
+              <!-- Íconos orbitales -->
+              <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div class="w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center floating">
+                  <span class="text-xl">🌟</span>
+                </div>
+              </div>
+              <div class="absolute bottom-0 right-0">
+                <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center floating" style="animation-delay: 1s;">
+                  <span class="text-xl">🚀</span>
+                </div>
+          </div>
+        </div>
+      </div>
+      
+          <!-- Columna 3 -->
+          <div class="space-y-8">
+            <div class="professional-card p-8 rounded-2xl animated-border">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-4">
+                  <span class="text-xl">🎯</span>
+                </div>
+                <h3 class="text-2xl font-bold text-purple-300">Precisión</h3>
+              </div>
+              <p class="text-gray-300">Cada llamada es una oportunidad de generar valor excepcional.</p>
+            </div>
+            
+            <div class="professional-card p-8 rounded-2xl animated-border">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-4">
+                  <span class="text-xl">💎</span>
+                </div>
+                <h3 class="text-2xl font-bold text-purple-300">Calidad</h3>
+              </div>
+              <p class="text-gray-300">Estándares premium en cada servicio que ofrecemos.</p>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- SERVICIOS - DISEÑO EN MOSAICO -->
+  <section id="soluciones" class="bg-gray-900 py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <div class="flex justify-center items-center mb-8">
+          <div class="hexagon mr-4">
+            <span class="text-2xl">⚡</span>
+          </div>
+          <h2 class="text-6xl font-black gradient-text">Nuestras Soluciones</h2>
+          <div class="hexagon ml-4">
+            <span class="text-2xl">🔧</span>
+          </div>
+        </div>
+        <div class="w-40 h-1 bg-gradient-to-r from-purple-400 to-yellow-500 mx-auto rounded-full"></div>
+      </div>
+      
+      <!-- Mosaico de servicios con diseño alternado -->
+      <div class="grid gap-8 lg:grid-cols-4 md:grid-cols-2">
+        
+        <!-- Servicio 1 - Grande -->
+        <div class="lg:col-span-2 lg:row-span-2">
+          <div class="professional-card rounded-3xl p-10 h-full animated-border relative overflow-hidden">
+            <div class="absolute top-4 right-4">
+              <div class="hexagon">
+                <span class="text-xl">📞</span>
+              </div>
+            </div>
+            <img 
+              src="https://images.unsplash.com/photo-1553484771-371a605b060b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+              alt="Centro de atención al cliente" 
+              class="w-full h-48 object-cover rounded-2xl mb-8"
+            />
+            <h3 class="text-3xl font-bold text-purple-300 mb-6">Centro de Atención Premium</h3>
+            <p class="text-gray-300 mb-8 text-lg">Servicio 24/7 con agentes especializados y tecnología de última generación.</p>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex items-center text-yellow-400">
+                <span class="mr-2">🌟</span>
+                <span class="text-sm">Atención 24/7</span>
+              </div>
+              <div class="flex items-center text-green-400">
+                <span class="mr-2">👥</span>
+                <span class="text-sm">Agentes Expertos</span>
+          </div>
+              <div class="flex items-center text-blue-400">
+                <span class="mr-2">🚀</span>
+                <span class="text-sm">Tecnología Avanzada</span>
+          </div>
+              <div class="flex items-center text-pink-400">
+                <span class="mr-2">📊</span>
+                <span class="text-sm">Reportes Detallados</span>
+          </div>
+          </div>
+          </div>
+      </div>
+      
+        <!-- Servicio 2 -->
+        <div class="professional-card rounded-3xl p-8 animated-border relative">
+          <div class="absolute top-4 right-4">
+            <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center">
+              <span>💰</span>
+            </div>
+          </div>
+          <img 
+            src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+            alt="Ventas telefónicas exitosas" 
+            class="w-full h-32 object-cover rounded-xl mb-6"
+          />
+          <h3 class="text-xl font-bold text-green-300 mb-4">Ventas Telefónicas</h3>
+          <p class="text-gray-300 text-sm">Estrategias probadas para maximizar conversiones.</p>
+          </div>
+          
+        <!-- Servicio 3 -->
+        <div class="professional-card rounded-3xl p-8 animated-border relative">
+          <div class="absolute top-4 right-4">
+            <div class="w-12 h-12 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center">
+              <span>🛠️</span>
+            </div>
+          </div>
+          <img 
+            src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+            alt="Soporte técnico especializado" 
+            class="w-full h-32 object-cover rounded-xl mb-6"
+          />
+          <h3 class="text-xl font-bold text-orange-300 mb-4">Soporte Técnico</h3>
+          <p class="text-gray-300 text-sm">Mesa de ayuda especializada 24/7.</p>
+          </div>
+          
+        <!-- Servicio 4 -->
+        <div class="professional-card rounded-3xl p-8 animated-border relative">
+          <div class="absolute top-4 right-4">
+            <div class="w-12 h-12 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full flex items-center justify-center">
+              <span>📋</span>
+            </div>
+          </div>
+          <img 
+            src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2076&q=80" 
+            alt="Investigación y encuestas" 
+            class="w-full h-32 object-cover rounded-xl mb-6"
+          />
+          <h3 class="text-xl font-bold text-pink-300 mb-4">Investigación</h3>
+          <p class="text-gray-300 text-sm">Estudios de mercado y encuestas especializadas.</p>
+          </div>
+          
+        <!-- Servicio 5 -->
+        <div class="professional-card rounded-3xl p-8 animated-border relative">
+          <div class="absolute top-4 right-4">
+            <div class="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+              <span>💳</span>
+            </div>
+          </div>
+          <img 
+            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+            alt="Gestión de cobranzas profesional" 
+            class="w-full h-32 object-cover rounded-xl mb-6"
+          />
+          <h3 class="text-xl font-bold text-yellow-300 mb-4">Cobranzas</h3>
+          <p class="text-gray-300 text-sm">Recuperación de cartera con estrategias efectivas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- TESTIMONIOS - DISEÑO CIRCULAR -->
+  <section id="equipo" class="diagonal-section bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 py-32">
+    <div class="diagonal-content">
+      <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20">
+          <div class="flex justify-center items-center mb-8">
+            <div class="hexagon mr-4">
+              <span class="text-2xl">🎯</span>
+            </div>
+            <h2 class="text-6xl font-black gradient-text">Nuestros Clientes</h2>
+          </div>
+          <div class="w-40 h-1 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full"></div>
+        </div>
+        
+        <!-- Testimonios en círculo -->
+        <div class="relative">
+          <!-- Centro - Logo o imagen principal -->
+          <div class="flex justify-center mb-16">
+            <div class="w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-4xl floating">
+              💎
+            </div>
+          </div>
+
+          <!-- Testimonios distribuidos -->
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            
+            <div class="professional-card rounded-2xl p-8 animated-border floating">
+              <div class="flex items-center mb-6">
+                <img 
+                  class="w-16 h-16 rounded-full border-4 border-purple-400 mr-4" 
+                  src="https://randomuser.me/api/portraits/women/55.jpg" 
+                  alt="María González"
+            />
+            <div>
+                  <h4 class="font-bold text-purple-300 text-lg">María González</h4>
+                  <p class="text-yellow-400 text-sm">🏢 CEO TechCorp</p>
+                </div>
+              </div>
+              <p class="text-gray-300 italic">"Nexo Custom revolucionó nuestra atención al cliente. ¡Increíble profesionalismo!"</p>
+              <div class="flex mt-4">
+                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+              </div>
+            </div>
+
+            <div class="professional-card rounded-2xl p-8 animated-border floating" style="animation-delay: 0.5s;">
+              <div class="flex items-center mb-6">
+                <img 
+                  class="w-16 h-16 rounded-full border-4 border-green-400 mr-4" 
+                  src="https://randomuser.me/api/portraits/men/35.jpg" 
+                  alt="Carlos Ruiz"
+            />
+            <div>
+                  <h4 class="font-bold text-green-300 text-lg">Carlos Ruiz</h4>
+                  <p class="text-yellow-400 text-sm">🚀 Director Innovate</p>
+                </div>
+              </div>
+              <p class="text-gray-300 italic">"Nuestras ventas aumentaron 60% con sus estrategias telefónicas."</p>
+              <div class="flex mt-4">
+                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+              </div>
+            </div>
+
+            <div class="professional-card rounded-2xl p-8 animated-border floating" style="animation-delay: 1s;">
+              <div class="flex items-center mb-6">
+                <img 
+                  class="w-16 h-16 rounded-full border-4 border-blue-400 mr-4" 
+                  src="https://randomuser.me/api/portraits/women/28.jpg" 
+                  alt="Ana Martínez"
+            />
+            <div>
+                  <h4 class="font-bold text-blue-300 text-lg">Ana Martínez</h4>
+                  <p class="text-yellow-400 text-sm">💼 Gerente Solutions</p>
+                </div>
+              </div>
+              <p class="text-gray-300 italic">"El soporte técnico 24/7 es excepcional. Siempre disponibles."</p>
+              <div class="flex mt-4">
+                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+  <!-- FOOTER - DISEÑO HEXAGONAL -->
+  <footer class="bg-black text-white py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-12 mb-16">
+        
+        <!-- Columna 1 - Logo y descripción -->
+        <div class="md:col-span-2">
+          <div class="flex items-center mb-8">
+            <div class="hexagon mr-4 floating">
+              <span class="text-2xl">📞</span>
+            </div>
+            <h3 class="text-4xl font-bold gradient-text">Nexo Custom</h3>
+          </div>
+          <p class="text-gray-300 mb-8 text-lg leading-relaxed">
+            Revolucionamos la comunicación empresarial con servicios de call center innovadores y soluciones personalizadas que conectan marcas con sus clientes de manera excepcional.
+          </p>
+          <div class="flex space-x-6">
+            <a href="#" class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center hover:scale-110 transition">
+              <span>📱</span>
+            </a>
+            <a href="#" class="w-12 h-12 bg-gradient-to-r from-blue-500 to-green-500 rounded-full flex items-center justify-center hover:scale-110 transition">
+              <span>💼</span>
+            </a>
+            <a href="#" class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center hover:scale-110 transition">
+              <span>🌐</span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Columna 2 - Contacto con iconos diferentes -->
+        <div>
+          <div class="flex items-center mb-8">
+            <div class="w-8 h-8 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center mr-3">
+              <span>📍</span>
+            </div>
+            <h4 class="text-2xl font-bold text-purple-300">Ubicación</h4>
+          </div>
+          <div class="space-y-6 text-gray-300">
+            <div class="flex items-start space-x-4">
+              <div class="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <span class="text-xs">🏠</span>
+              </div>
+              <span>Manuelita Rosas 435, Libertador General San Martín, Ledesma, Jujuy</span>
+            </div>
+            <div class="flex items-center space-x-4">
+              <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                <span class="text-xs">📞</span>
+              </div>
+              <a href="tel:+5492235189162" class="hover:text-yellow-400 transition text-lg font-bold">+54 9 223 518 9162</a>
+            </div>
+            <div class="flex items-center space-x-4">
+              <div class="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center">
+                <span class="text-xs">✉️</span>
+              </div>
+              <span>contacto@nexocustom.com</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Columna 3 - Horarios con nuevo diseño -->
+        <div>
+          <div class="flex items-center mb-8">
+            <div class="w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mr-3">
+              <span>⏰</span>
+            </div>
+            <h4 class="text-2xl font-bold text-yellow-300">Disponibilidad</h4>
+          </div>
+          <div class="space-y-4 text-gray-300">
+            <div class="bg-purple-800/30 p-4 rounded-xl border border-purple-500/30">
+              <p class="font-bold text-green-400 mb-2">🟢 Call Center</p>
+              <p>24 horas / 7 días</p>
+            </div>
+            <div class="bg-purple-800/30 p-4 rounded-xl border border-purple-500/30">
+              <p class="font-bold text-blue-400 mb-2">🏢 Oficinas</p>
+              <p>Lun-Vie: 08:00-20:00</p>
+              <p>Sáb: 09:00-15:00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-purple-500/30 pt-12 text-center">
+        <div class="flex justify-center items-center mb-6">
+          <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-2xl floating">
+            💎
+          </div>
+        </div>
+        <p class="text-purple-300 mb-3 text-xl font-bold">Nexo Custom - Innovación en Comunicación Empresarial</p>
+        <p class="text-gray-400">© 2024 Todos los derechos reservados | Diseñado con 💜 para conectar empresas</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP - NUEVO DISEÑO -->
+  <a 
+    href="https://wa.me/5492235189162?text=¡Hola%20Nexo%20Custom!%20💜%20Me%20interesa%20conocer%20sus%20servicios%20de%20call%20center%20innovadores" 
+    target="_blank"
+    class="fixed bottom-8 right-8 whatsapp-btn text-white p-6 rounded-full shadow-2xl z-50 transition-all duration-300 hover:scale-110 group"
+    aria-label="Contactar por WhatsApp"
+  >
+    <div class="relative">
+      <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+      </svg>
+      <!-- Indicador de notificación -->
+      <div class="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-xs font-bold floating">
+        💬
+      </div>
+    </div>
+  </a>
+
+</body>
+</html>
